@@ -10,7 +10,9 @@ class PromotionRepository implements IPromotionRepository {
     this.repository = getRepository(Promotion);
   }
 
-  async create({ name }): Promise<Promotion> {
+  async create({ 
+    name 
+  }): Promise<Promotion> {
     const promotion = this.repository.create({
       name,
     });

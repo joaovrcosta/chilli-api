@@ -11,7 +11,10 @@ export class Product {
   name: string;
 
   @Column()
-  value: number;
+  price: number;
+
+  @Column()
+  description: string;
 
   @Column()
   promotion_id: string;
