@@ -1,23 +1,24 @@
 import { getRepository, Repository } from "typeorm";
+import { IPromotionRepository } from "../../../IRepositories/IPromotionRepository";
+
 import { Promotion } from "../entities/Promotion";
-import { IPromotionRepository } from "../../../repositories/IPromotionRepository";
 
 class PromotionRepository implements IPromotionRepository {
-    private repository: Repository<Promotion>;
-  
-    constructor() {
-      this.repository = getRepository(Promotion);
-    }
-  
-    async create({name}): Promise<Promotion> {
-      const category = this.repository.create({
-        name,
-      });
-  
-      await this.repository.save(category);
-  
-      return category
-    }
+  private repository: Repository<Promotion>;
+
+  constructor() {
+    this.repository = getRepository(Promotion);
   }
-  
-  export { PromotionRepository };
+
+  async create({ name }): Promise<Promotion> {
+    const promotion = this.repository.create({
+      name,
+    });
+
+    await this.repository.save(promotion);
+
+    return promotion
+  }
+}
+
+export { PromotionRepository };

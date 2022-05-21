@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { IPromotionRepository } from "../../repositories/IPromotionRepository"
+import { IPromotionRepository } from "../../IRepositories/IPromotionRepository"
 
 type IRequest = {
   name: string;

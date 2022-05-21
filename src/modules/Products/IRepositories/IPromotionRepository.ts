@@ -1,14 +1,14 @@
 import { Promotion } from "../infra/typeorm/entities/Promotion";
 
 
-interface ICreateCategoryDTO {
+interface ICreatePromotionDTO {
     name: string;
   }
 
 
 interface IPromotionRepository {
    
-    create({name: string}: ICreateCategoryDTO): Promise<Promotion>
+    create({name: string}: ICreatePromotionDTO): Promise<Promotion>
 }
 
 export { IPromotionRepository }
