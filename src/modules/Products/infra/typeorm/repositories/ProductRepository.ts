@@ -10,24 +10,42 @@ class ProductRepository implements IProductRepository {
     this.repository = getRepository(Product);
   }
 
-  async create({ 
-    name, 
-    price, 
-    description, 
-    promotion_id
+  
+
+  async create({
+    name,
+    price,
+    description,
+    promotion_id,
   }: ICreateProductDTO): Promise<Product> {
     const product = this.repository.create({
       name,
       price,
       description,
-      promotion_id
+      promotion_id,
     });
 
     await this.repository.save(product);
 
-    return product
-        
+    return product;
   }
+
+  async findAll(id?: string, name?: string): Promise<Product[]> {
+    const productsQuery = await this.repository.createQueryBuilder("p");
+
+    if (id) {
+      productsQuery.andWhere("p.id = :id", { id })
+    }
+
+    if (name) {
+      productsQuery.andWhere("p.name = :name", { name })
+    }
+    
+    const products = await productsQuery.getMany()
+
+    return products
+  }
+
 }
 
 export { ProductRepository };

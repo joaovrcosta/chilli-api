@@ -9,6 +9,12 @@ export class Promotion {
   @Column()
   name: string;
 
+  @Column()
+  compre: number;
+
+  @Column()
+  pague: number;
+
   @CreateDateColumn()
   created_at: Date;
 

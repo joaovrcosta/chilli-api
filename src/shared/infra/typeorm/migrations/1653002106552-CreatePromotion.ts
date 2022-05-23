@@ -17,6 +17,14 @@ export class CreateProducts1653002106552 implements MigrationInterface {
                         type: "varchar",
                     },
                     {
+                        name: "compre",
+                        type: "numeric",
+                    },
+                    {
+                        name: "pague",
+                        type: "numeric",
+                    },
+                    {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()"
