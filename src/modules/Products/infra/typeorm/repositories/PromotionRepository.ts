@@ -10,11 +10,13 @@ class PromotionRepository implements IPromotionRepository {
     this.repository = getRepository(Promotion);
   }
 
-  async create({ name, compre, pague }): Promise<Promotion> {
+  async create({ name, compre, pague, type}): Promise<Promotion> {
+    console.log(type)
     const promotion = this.repository.create({
       name,
       compre,
       pague,
+      type
     });
 
     await this.repository.save(promotion);

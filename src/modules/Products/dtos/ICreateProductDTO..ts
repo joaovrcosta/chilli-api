@@ -3,7 +3,7 @@ interface ICreateProductDTO {
     price: number;
     description: string;
     promotion_id?: string;
-  }
+}
 
 
 export { ICreateProductDTO }

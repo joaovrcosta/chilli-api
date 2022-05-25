@@ -1,6 +1,8 @@
 import { Entity, Column, CreateDateColumn, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
+export type PromotionType =  "buyAndTake" | "buyAndPay"
+
 @Entity("promotions")
 export class Promotion {
   @PrimaryColumn()
@@ -14,6 +16,9 @@ export class Promotion {
 
   @Column()
   pague: number;
+
+  @Column()
+  type: PromotionType;
 
   @CreateDateColumn()
   created_at: Date;
