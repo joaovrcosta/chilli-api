@@ -4,7 +4,7 @@ import { Response, Request } from "express";
 
 class CreateProductController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { name, price, description, promotion_id } = request.body;
+    let { name, price, description, promotion_id } = request.body;
 
     const createProductUseCase = container.resolve(CreateProductUseCase);
 
